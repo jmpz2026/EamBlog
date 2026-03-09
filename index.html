@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EAM Anónimos — Foro Estudiantil</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="scanlines"></div>
+
+  <header class="site-header">
+    <div class="header-tape"></div>
+    <div class="header-inner">
+      <div class="logo-block">
+        <span class="logo-anon">///</span>
+        <h1 class="logo-title">EAM ANÓNIMOS</h1>
+        <span class="logo-anon">///</span>
+      </div>
+      <p class="logo-sub">foro estudiantil no oficial · postea sin miedo</p>
+      <div class="header-warning">⚠ ESTE FORO ES COMPLETAMENTE ANÓNIMO ⚠</div>
+    </div>
+    <div class="header-tape bottom"></div>
+  </header>
+
+  <main class="container">
+
+    <!-- POST PRINCIPAL -->
+    <article class="post-card main-post">
+      <div class="post-meta">
+        <span class="post-author">👤 Anónimo_7743</span>
+        <span class="post-time">hace 2h · 📍 EAM</span>
+        <span class="post-badge hot">🔥 VIRAL</span>
+      </div>
+      <h2 class="post-title">
+        ESTUDIANTES DESAPARECIDOS, CADÁVER ENCONTRADO<br/>
+        <span class="post-subtitle">¿QUÉ PIENSAN AL RESPECTO?</span>
+      </h2>
+      <div class="post-body">
+        <p>Todos ya se enteraron de lo que está pasando acá en la universidad. No voy a decir más de lo que ya saben pero NECESITAMOS hablar de esto entre nosotros porque la administración no dice NADA. Nadie da la cara. Nadie explica nada.</p>
+        <p>¿Alguien sabe algo? ¿Vieron algo raro? Cuenten acá. TODO ANÓNIMO. No tengan miedo.</p>
+      </div>
+      <div class="post-stats">
+        <span>💬 <strong id="comment-count">5</strong> comentarios</span>
+        <span>👁 <strong>1.2k</strong> vistas</span>
+        <span>🔁 <strong>87</strong> compartidos</span>
+      </div>
+    </article>
+
+    <!-- SEPARADOR -->
+    <div class="section-divider">
+      <span class="divider-line"></span>
+      <span class="divider-text">— COMENTARIOS —</span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- COMENTARIOS -->
+    <section class="comments-section" id="comments">
+
+      <div class="comment-card" data-delay="0">
+        <div class="comment-header">
+          <span class="comment-avatar">👤</span>
+          <span class="comment-user">Anónimo_2291</span>
+          <span class="comment-time">hace 1h 47min</span>
+        </div>
+        <p class="comment-text">yo vi a un profe sospechoso saliendo del salon <strong class="highlight">204</strong> llevaba la camisa manchada… no quiero decir de qué. sigo con eso en la cabeza.</p>
+        <div class="comment-reactions">
+          <button class="react-btn" onclick="react(this)">😨 <span>34</span></button>
+          <button class="react-btn" onclick="react(this)">👀 <span>21</span></button>
+        </div>
+      </div>
+
+      <div class="comment-card" data-delay="1">
+        <div class="comment-header">
+          <span class="comment-avatar">👤</span>
+          <span class="comment-user">Anónimo_8804</span>
+          <span class="comment-time">hace 1h 30min</span>
+        </div>
+        <p class="comment-text">yo vi a un profesor con un comportamiento muy extraño estos últimos días. esquivando miradas, nervioso, no quería que nadie se le acercara al escritorio. algo está mal.</p>
+        <div class="comment-reactions">
+          <button class="react-btn" onclick="react(this)">😨 <span>58</span></button>
+          <button class="react-btn" onclick="react(this)">👀 <span>43</span></button>
+        </div>
+      </div>
+
+      <div class="comment-card" data-delay="2">
+        <div class="comment-header">
+          <span class="comment-avatar">👤</span>
+          <span class="comment-user">Anónimo_5512</span>
+          <span class="comment-time">hace 1h 12min</span>
+        </div>
+        <p class="comment-text">¿¿todos estamos de acuerdo en que ese profesor es MUY raro?? porque yo llevo semestres diciéndolo y nadie me hacía caso. ojalá me hubieran creído antes.</p>
+        <div class="comment-reactions">
+          <button class="react-btn" onclick="react(this)">😨 <span>91</span></button>
+          <button class="react-btn" onclick="react(this)">👀 <span>67</span></button>
+        </div>
+      </div>
+
+      <div class="comment-card" data-delay="3">
+        <div class="comment-header">
+          <span class="comment-avatar">👤</span>
+          <span class="comment-user">Anónimo_3367</span>
+          <span class="comment-time">hace 55min</span>
+        </div>
+        <p class="comment-text">yo escuché gritos… no investigué, me dio mucho miedo y salí corriendo del pasillo. no sé de dónde venían exactamente pero eran fuertes. no me lo puedo sacar de la cabeza.</p>
+        <div class="comment-reactions">
+          <button class="react-btn" onclick="react(this)">😨 <span>112</span></button>
+          <button class="react-btn" onclick="react(this)">👀 <span>89</span></button>
+        </div>
+      </div>
+
+      <div class="comment-card" data-delay="4">
+        <div class="comment-header">
+          <span class="comment-avatar">👤</span>
+          <span class="comment-user">Anónimo_9901</span>
+          <span class="comment-time">hace 20min</span>
+        </div>
+        <p class="comment-text">qué miedo estudiar con todo esto que está pasando. yo de verdad ya no me siento seguro/a acá. ¿cuándo va a hacer algo la universidad? ¿cuándo alguien va a dar la cara?</p>
+        <div class="comment-reactions">
+          <button class="react-btn" onclick="react(this)">😨 <span>204</span></button>
+          <button class="react-btn" onclick="react(this)">👀 <span>155</span></button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- NUEVO COMENTARIO -->
+    <section class="new-comment-section">
+      <div class="section-divider">
+        <span class="divider-line"></span>
+        <span class="divider-text">— DEJAR COMENTARIO —</span>
+        <span class="divider-line"></span>
+      </div>
+      <div class="comment-form">
+        <div class="anon-badge">👤 Publicando como: <strong>Anónimo</strong></div>
+        <textarea id="new-comment-input" placeholder="¿Viste algo? ¿Sabes algo? Cuéntanos. Eres anónimo/a." rows="4"></textarea>
+        <button class="submit-btn" onclick="submitComment()">📢 PUBLICAR ANÓNIMAMENTE</button>
+        <p class="form-disclaimer">* Tu identidad nunca será revelada. Postea con responsabilidad.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>EAM ANÓNIMOS · foro no oficial · no afiliado a la institución</p>
+    <p class="footer-small">los comentarios son responsabilidad de cada usuario</p>
+  </footer>
+
+  <script src="./scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+/* ===========================
+   EAM ANÓNIMOS — STYLES.CSS
+   Estética: tablón de casos, papel viejo, tono oscuro
+=========================== */
+
+:root {
+  --bg: #0e0c0a;
+  --surface: #161410;
+  --surface2: #1e1b17;
+  --border: #3a3228;
+  --border-bright: #5a4e40;
+  --text: #d4c8b0;
+  --text-muted: #8a7d6a;
+  --text-dim: #5a5040;
+  --accent: #c84b2f;
+  --accent2: #e8a020;
+  --accent3: #4a8fa8;
+  --highlight: #c84b2f;
+  --tape: #f0d060;
+  --font-display: 'Special Elite', 'Courier New', monospace;
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+  --font-body: 'Courier Prime', 'Courier New', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* === EFECTOS DE FONDO === */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+}
+
+/* === HEADER === */
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: var(--surface);
+  border-bottom: 2px solid var(--accent);
+  text-align: center;
+  padding: 0;
+}
+
+.header-tape {
+  height: 14px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--tape),
+    var(--tape) 10px,
+    #d4a800 10px,
+    #d4a800 20px
+  );
+  opacity: 0.85;
+}
+
+.header-tape.bottom {
+  opacity: 0.6;
+}
+
+.header-inner {
+  padding: 28px 20px 22px;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.logo-anon {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.4rem;
+  letter-spacing: -2px;
+  opacity: 0.7;
+}
+
+.logo-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  letter-spacing: 0.12em;
+  color: var(--text);
+  text-shadow: 0 0 30px rgba(200, 75, 47, 0.3);
+}
+
+.logo-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.header-warning {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--accent2);
+  border: 1px solid var(--accent2);
+  padding: 4px 14px;
+  opacity: 0.75;
+  animation: blink 3s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 0.2; }
+}
+
+/* === CONTAINER === */
+.container {
+  position: relative;
+  z-index: 5;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* === POST PRINCIPAL === */
+.main-post {
+  background: var(--surface);
+  border: 1px solid var(--border-bright);
+  border-left: 4px solid var(--accent);
+  padding: 28px 30px;
+  margin-bottom: 12px;
+  position: relative;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  animation: fadeSlide 0.5s ease both;
+}
+
+.main-post::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.post-author {
+  color: var(--accent3);
+  font-weight: bold;
+}
+
+.post-badge {
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  font-weight: bold;
+}
+
+.post-badge.hot {
+  animation: pulse 1.5s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.post-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.post-subtitle {
+  font-size: 0.85em;
+  color: var(--accent);
+  display: block;
+  margin-top: 4px;
+}
+
+.post-body {
+  margin: 18px 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 16px;
+}
+
+.post-body p + p {
+  margin-top: 10px;
+}
+
+.post-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border);
+  padding-top: 14px;
+  margin-top: 16px;
+}
+
+/* === SEPARADOR === */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 32px 0 24px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.divider-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* === COMENTARIOS === */
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.comment-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-bright);
+  padding: 18px 22px;
+  position: relative;
+  animation: fadeSlide 0.4s ease both;
+  transition: border-left-color 0.2s;
+}
+
+.comment-card:nth-child(odd) {
+  border-left-color: var(--accent3);
+}
+.comment-card:nth-child(even) {
+  border-left-color: var(--accent);
+}
+
+.comment-card:hover {
+  border-left-color: var(--accent2);
+  background: #1c1a15;
+}
+
+.comment-card[data-delay="0"] { animation-delay: 0.1s; }
+.comment-card[data-delay="1"] { animation-delay: 0.2s; }
+.comment-card[data-delay="2"] { animation-delay: 0.3s; }
+.comment-card[data-delay="3"] { animation-delay: 0.4s; }
+.comment-card[data-delay="4"] { animation-delay: 0.5s; }
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.comment-avatar {
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+.comment-user {
+  color: var(--accent3);
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.comment-time {
+  color: var(--text-dim);
+  margin-left: auto;
+}
+
+.comment-text {
+  font-size: 0.93rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.highlight {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: bold;
+}
+
+.comment-reactions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.react-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  border-radius: 2px;
+}
+
+.react-btn:hover {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  background: rgba(232, 160, 32, 0.06);
+}
+
+.react-btn.reacted {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  background: rgba(232, 160, 32, 0.1);
+}
+
+/* === NUEVO COMENTARIO === */
+.new-comment-section {
+  margin-top: 40px;
+}
+
+.comment-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent3);
+  padding: 24px 26px;
+}
+
+.anon-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  background: var(--surface2);
+  border: 1px dashed var(--border);
+  display: inline-block;
+}
+
+.anon-badge strong {
+  color: var(--accent3);
+}
+
+textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 14px 16px;
+  resize: vertical;
+  line-height: 1.6;
+  outline: none;
+  transition: border-color 0.2s;
+  display: block;
+  margin-top: 6px;
+}
+
+textarea::placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+textarea:focus {
+  border-color: var(--accent3);
+}
+
+.submit-btn {
+  margin-top: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #a83520;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.form-disclaimer {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  margin-top: 10px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* === NEW COMMENT ANIMATION === */
+.comment-card.new {
+  border-left-color: var(--accent2) !important;
+  animation: newComment 0.5s ease both;
+}
+
+@keyframes newComment {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+    background: rgba(232, 160, 32, 0.08);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    background: var(--surface2);
+  }
+}
+
+/* === FOOTER === */
+.site-footer {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  line-height: 2;
+}
+
+.footer-small {
+  font-size: 0.6rem;
+  opacity: 0.5;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 500px) {
+  .main-post {
+    padding: 20px 18px;
+  }
+  .comment-card {
+    padding: 14px 16px;
+  }
+  .comment-form {
+    padding: 18px 16px;
+  }
+  .post-stats {
+    gap: 12px;
+  }
+}
